@@ -35,7 +35,7 @@
 <body>
 
   <h1>Privacy Policy</h1>
-  <p class="subtitle">Swap &amp; Spell: Word Puzzle &nbsp;·&nbsp; Last updated: July 14, 2026</p>
+  <p class="subtitle">Swap &amp; Spell: Word Puzzle &nbsp;·&nbsp; Last updated: August 16, 2026</p>
 
   <h2>Overview</h2>
   <p>
@@ -78,7 +78,7 @@
       <tr>
         <td>Firebase Analytics</td>
         <td>Usage analytics</td>
-        <td>App events, device information, app-instance ID (and your Player ID if signed in)</td>
+        <td>App events, purchase amount and currency, player segments, device information, app-instance ID (and your Player ID if signed in and consented)</td>
       </tr>
       <tr>
         <td>Firebase Crashlytics</td>
@@ -206,7 +206,7 @@
     functionality purposes:
   </p>
   <ul>
-    <li><strong>User ID (Player ID)</strong> — a unique identifier linking your Google account to your in-game profile. While you are signed in, this identifier is also associated with the app's analytics and crash diagnostics (see below) to help group activity and reports from the same installation.</li>
+    <li><strong>User ID (Player ID)</strong> — a unique identifier linking your Google account to your in-game profile. While you are signed in, this identifier is also attached to the app's crash diagnostics to help group reports from the same installation; it is attached to analytics only if you have <em>also</em> consented to analytics, and is cleared if you withdraw that consent (see <em>Firebase Analytics</em> below for the conditions).</li>
     <li><strong>Saved game data (app activity)</strong> — your stored game progress, synced through Google Play Saved Games so it can be restored on reinstall or a new device.</li>
   </ul>
   <p>
@@ -224,11 +224,50 @@
     with the game. Firebase Analytics may collect:
   </p>
   <ul>
-    <li>App events (e.g. session start, first open, level start, level completion or failure, and Remove Ads ownership)</li>
+    <li>App events — for example: opening the app and starting a session, which screen you
+    are on (title, level select, shop, settings, gameplay, results), starting a level and
+    its result, playing the daily puzzle, tutorial progress, coins earned and what you spend
+    them on in the shop, rewarded and full-screen ad placements and whether an ad was
+    watched, each step of the Remove Ads purchase (starting checkout, completing it, or the
+    reason one did not complete), restoring purchases, and whether you are signed in to
+    Google Play Games</li>
+    <li><strong>Purchase events, including the amount and currency</strong> of an in-app
+    purchase you complete, so that revenue can be reported alongside gameplay. Tinker Apps
+    never receives, sees, or stores your payment details — see <em>Google Play Billing</em>
+    above.</li>
     <li>Device information (model, OS version, language)</li>
     <li>A randomly-generated app instance ID</li>
     <li>Approximate location derived from IP address</li>
-    <li>If you are signed in to Google Play Games, your Play Games Player ID, used as a user identifier</li>
+    <li>Your <strong>Play Games Player ID</strong>, but only if you are signed in to Google
+    Play Games <em>and</em> have consented — see below</li>
+  </ul>
+  <p>
+    <strong>Player segments.</strong> Alongside individual events, Swap &amp; Spell records a
+    small set of coarse labels describing what kind of player you are, so that the reports
+    above can be broken down by group rather than read as one undifferentiated total. For
+    Swap &amp; Spell these are: whether you have bought Remove Ads, roughly how far into the
+    levels you are, roughly how many stars you have collected, whether you have played the
+    daily puzzle, and whether you are signed in to Google Play Games. These labels are
+    deliberately coarse ranges rather than exact values (for example "levels 11–25", not
+    "level 17"), they describe your activity in this game only, and they are not used to
+    target advertising.
+  </p>
+  <p>
+    <strong>Play Games Player ID in analytics.</strong> If you are signed in to Google Play
+    Games, Swap &amp; Spell may pass your Play Games Player ID to Firebase Analytics as a
+    user identifier, so that activity from the same player can be recognised across sessions
+    and devices rather than only per install. Specifically:
+  </p>
+  <ul>
+    <li>The Player ID is a <strong>pseudonymous identifier issued by Google</strong> and
+    scoped to this game. It is not your name, email address, Google account address, or
+    Play Games display name, and none of those are ever sent to Firebase.</li>
+    <li>It is only used <strong>after you consent</strong> through Google's consent message.
+    Until then — and if you decline — no Player ID is attached to analytics events.</li>
+    <li>If you <strong>withdraw consent</strong> (<em>Settings &gt; Manage Ad Privacy
+    Options</em>), the identifier is cleared and stops being attached.</li>
+    <li>If you never sign in to Google Play Games, there is no Player ID and nothing is
+    attached.</li>
   </ul>
   <p>
     This data is processed by Google under
